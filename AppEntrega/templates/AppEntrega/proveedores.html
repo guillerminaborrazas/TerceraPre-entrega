@@ -1,0 +1,35 @@
+<div>
+
+    {% extends "AppEntrega/inicio.html" %}
+
+    {% load static %}
+        {% block contenidoQueCambia %}
+        <!-- Header-->
+        <header class="masthead text-center text-white">
+            <div class="masthead-content">
+                <div class="container px-5">
+                    <h1 class="masthead-heading mb-0">Proveedores</h1>
+                    <h2 class="masthead-subheading mb-0">9 de cada 10 empresas nos eligen</h2>
+                </div>
+            </div>
+            <div class="bg-circle-1 bg-circle"></div>
+            <div class="bg-circle-2 bg-circle"></div>
+            <div class="bg-circle-3 bg-circle"></div>
+            <div class="bg-circle-4 bg-circle"></div>
+        </header>
+        <section id="scroll">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <!--div class="col-lg-6 order-lg-1"-->
+                        <div class="p-5">
+                            <h2 class="display-4">Registrate y descubrí una forma más facil de vender</h2>
+                            {% block setProveedor %}
+                            <button class="btn-primary btn-xl rounded-pill btnRegistro" style="background-color: rgb(236, 154, 72)"><a href="{% url 'Agregar Proveedores' %}">Quiero vender</button>
+                            {% endblock %}
+                        </div>
+                    <!--/div-->
+                </div>
+            </div>
+        </section>
+        {% endblock %}
+</div>

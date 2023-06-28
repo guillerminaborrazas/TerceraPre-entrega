@@ -17,7 +17,7 @@ class Articulo(models.Model):
     precio = models.IntegerField()
     vendedor = models.CharField(max_length=100)
 
-class Servicios(models.Model):
+class Servicio(models.Model):
     descripcion = models.CharField(max_length=100)
     proveedor = models.CharField(max_length=100)
     precio = models.IntegerField()
