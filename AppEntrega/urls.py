@@ -2,7 +2,7 @@ from django.urls import path
 from AppEntrega.views import *
 
 urlpatterns = [
-    path('', inicio),
+    path('', inicio, name = 'Inicio'),
     path('clientes/', clientes, name="Clientes"),
     path('proveedores/', proveedores, name='Proveedores'),
     path('articulos/', articulos, name='Articulos'),
