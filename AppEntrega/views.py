@@ -9,12 +9,15 @@ def inicio(request):
     return render(request, "AppEntrega/inicio.html")
 def clientes(request):
     return render(request, "AppEntrega/clientes.html")
+
 def proveedores(request):
     return render(request, "AppEntrega/proveedores.html")
 def articulos(request):
-    return render(request, "AppEntrega/articulos.html")
+    articulos = Articulo.objects.all()
+    return render(request, "AppEntrega/articulos.html", {"articulos": articulos})
 def servicios(request):
-    return render(request, "AppEntrega/servicios.html")
+    servicios = Servicio.objects.all()
+    return render(request, "AppEntrega/servicios.html", {"servicios": servicios})
 
 def setCliente(request):
     if request.method == "POST":
@@ -83,3 +86,31 @@ def setServicio(request):
             miFormulario = formSetServicio
  
     return render(request, "AppEntrega/setServicio.html", {"miFormulario": miFormulario})
+
+def getArticulo(request):
+
+    return(render(request, "AppEntrega/getArticulo.html"))
+
+def buscarArticulo(request):
+    if request.GET["nombre"]:
+        nombre = request.GET["nombre"]
+        articulos = Articulo.objects.filter(nombre=nombre)
+
+        return render(request, "AppEntrega/getArticulo.html", {"articulos": articulos, "key": "value"})
+    else:
+        respuesta = "No se enviaron datos"
+        return HttpResponse(respuesta)
+    
+def getServicio(request):
+
+    return(render(request, "AppEntrega/getServicio.html"))
+
+def buscarServicio(request):
+    if request.GET["descripcion"]:
+        descripcion = request.GET["descripcion"]
+        servicios = Servicio.objects.filter(descripcion=descripcion)
+
+        return render(request, "AppEntrega/getServicio.html", {"servicios": servicios, "key": "value"})
+    else:
+        respuesta = "No se enviaron datos"
+        return HttpResponse(respuesta)

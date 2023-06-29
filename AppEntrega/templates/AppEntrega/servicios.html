@@ -25,7 +25,24 @@
                         <div class="p-5">
                             <h2 class="display-4">Qué ofrecemos?</h2>
                             <p>Encontrá todos los servicios disponibles</p>
-                            <button class="btn-primary btn-xl rounded-pill btnRegistro" style="background-color: rgb(236, 154, 72)"><a href="{% url 'Agregar Servicios' %}">Agregar nuevo</button>
+                            <p>Busqueda rápida: </p><button class="btn-primary rounded-pill btnRegistro" style="background-color: rgb(236, 154, 72)"><a href="{% url 'Buscar Servicio' %}">Encontralo acá</a></button>
+                            <p> </p>
+                            <p>Servicios Disponibles</p>
+                            <table id="tableInfoEstudiantes">
+                                <tr id="tituloTablaEstudiantes">
+                                    <th>Descripcion</th>
+                                    <th>Proveedor</th>
+                                    <th>Precio</th>
+                                </tr>
+                                {% for servicio in servicios %}
+                                <tr>
+                                    <td>{{servicio.descripcion}}</td>
+                                    <td>{{servicio.proveedor}}</td>
+                                    <td>{{servicio.precio}}</td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                            <button class="btn-primary btn-xl rounded-pill btnRegistro" style="background-color: rgb(236, 154, 72)"><a href="{% url 'Agregar Servicios' %}">Agregar nuevo</a></button>
                         </div>
                     </div>
                 </div>

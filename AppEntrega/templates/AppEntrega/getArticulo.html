@@ -1,0 +1,32 @@
+<div>
+    {% extends "AppEntrega/articulos.html" %}
+    {% load static %}
+    {% block setArticulo %}
+    <section id="scroll">
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center">
+                <!--div class="col-lg-6 order-lg-1"-->
+                <div class="p-5">
+                    <p>Consultar Articulo</p>
+                    <form action="/AppEntrega/buscarArticulo/" method="GET">
+                        <input placeholder="Nombre" type="text" name="nombre" id="nombre">
+
+                        <input class="btn btn-primary" style="background-color: orange" type="submit" value="Enviar">
+                    </form>
+                    <div>
+                        {% if articulos %}
+                        <ul>
+                            {% for articulo in articulos %}
+                            <li>{{ articulo.nombre }} - ${{ articulo.precio }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+                </div>
+                <!--/div-->
+            </div>
+        </div>
+    </section>
+
+    {% endblock %}
+</div>

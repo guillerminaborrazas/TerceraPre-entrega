@@ -11,6 +11,10 @@ urlpatterns = [
     path('setProveedor/', setProveedor, name="Agregar Proveedores"),
     path('setArticulo/', setArticulo, name="Agregar Articulos"),
     path('setServicio/', setServicio, name="Agregar Servicios"),
+    path('getArticulo/', getArticulo, name= "Buscar Articulo"),
+    path('buscarArticulo/', buscarArticulo),
+    path('getServicio/', getServicio, name= "Buscar Servicio"),
+    path('buscarServicio/', buscarServicio),
 
 
 ]

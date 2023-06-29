@@ -3,33 +3,50 @@
     {% extends "AppEntrega/inicio.html" %}
 
     {% load static %}
-        {% block contenidoQueCambia %}
-        <!-- Header-->
-        <header class="masthead text-center text-white">
-            <div class="masthead-content">
-                <div class="container px-5">
-                    <h1 class="masthead-heading mb-0">Artículos</h1>
-                    <h2 class="masthead-subheading mb-0">Más de 15000 artículos disponibles</h2>
-                </div>
-            </div>
-            <div class="bg-circle-1 bg-circle"></div>
-            <div class="bg-circle-2 bg-circle"></div>
-            <div class="bg-circle-3 bg-circle"></div>
-            <div class="bg-circle-4 bg-circle"></div>
-        </header>
-        {% block setArticulo %}
-        <section id="scroll">
+    {% block contenidoQueCambia %}
+    <!-- Header-->
+    <header class="masthead text-center text-white">
+        <div class="masthead-content">
             <div class="container px-5">
-                <div class="row gx-5 align-items-center">
-                    <div class="col-lg-6 order-lg-1">
-                        <div class="p-5">
-                            <h2 class="display-4">Querés buscar algo?</h2>
-                            <button class="btn-primary btn-xl rounded-pill btnRegistro" style="background-color: rgb(236, 154, 72)"><a href="{% url 'Agregar Articulos' %}">Agregar nuevo</button>
-                        </div>
+                <h1 class="masthead-heading mb-0">Artículos</h1>
+                <h2 class="masthead-subheading mb-0">Más de 15000 artículos disponibles</h2>
+            </div>
+        </div>
+        <div class="bg-circle-1 bg-circle"></div>
+        <div class="bg-circle-2 bg-circle"></div>
+        <div class="bg-circle-3 bg-circle"></div>
+        <div class="bg-circle-4 bg-circle"></div>
+    </header>
+    {% block setArticulo %}
+    <section id="scroll">
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-6 order-lg-1">
+                    <div class="p-5">
+                        <h2 class="display-4">Querés buscar algo?</h2>
+                        <p>Busqueda rápida: </p><button class="btn-primary rounded-pill btnRegistro" style="background-color: rgb(236, 154, 72)"><a href="{% url 'Buscar Articulo' %}">Encontralo acá</a></button>
+                        <p> </p>
+                        <p>Articulos Disponibles</p>
+                        <table id="tableInfoEstudiantes">
+                            <tr id="tituloTablaEstudiantes">
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Vendedor</th>
+                            </tr>
+                            {% for articulo in articulos %}
+                            <tr>
+                                <td>{{articulo.nombre}}</td>
+                                <td>{{articulo.precio}}</td>
+                                <td>{{articulo.vendedor}}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                        <button class="btn-primary btn-xl rounded-pill btnRegistro" style="background-color: rgb(236, 154, 72)"><a href="{% url 'Agregar Articulos' %}">Agregar nuevo</a></button>
                     </div>
                 </div>
             </div>
-        </section>
-        {% endblock %}
-        {% endblock %}
+        </div>
+    </section>
+    {% endblock %}
+    {% endblock %}
 </div>
